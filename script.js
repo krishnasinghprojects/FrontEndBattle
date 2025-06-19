@@ -305,3 +305,147 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize the first item as active
     setActiveItem(0);
 });
+
+
+
+
+
+
+
+ document.addEventListener('DOMContentLoaded', () => {
+            const heading = document.querySelector('.testimonial-heading');
+            const reviewCards = document.querySelectorAll('.review-card');
+
+            // Options for the Intersection Observer
+            const options = {
+                root: null, // observes intersections relative to the viewport
+                rootMargin: '0px',
+                threshold: 0.1 // Triggers when 10% of the element is visible
+            };
+
+            // Callback function to execute when an element is intersecting
+            const callback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add the 'is-visible' class to trigger animations
+                        entry.target.classList.add('is-visible');
+                        
+                        // Optional: Unobserve the element after animation to save resources
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+
+            // Create a new Intersection Observer
+            const observer = new IntersectionObserver(callback, options);
+
+            // Observe the heading
+            if (heading) {
+                observer.observe(heading);
+            }
+
+            // Observe each review card
+            reviewCards.forEach(card => {
+                observer.observe(card);
+            });
+        });
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+            // Select all elements that need to be animated on scroll
+            const animatedElements = document.querySelectorAll(
+                '.testimonial-heading, .review-card, .stat-card, .progress-bar .fill'
+            );
+
+            const observerCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        
+                        // Add the 'is-visible' class to trigger fade/slide animations
+                        target.classList.add('is-visible');
+
+                        // Special handling for progress bar fills
+                        if (target.classList.contains('fill') && target.dataset.width) {
+                            // Set the width to trigger the fill animation
+                            target.style.width = target.dataset.width;
+                        }
+                        
+                        // Unobserve the element after animation to improve performance
+                        observer.unobserve(target);
+                    }
+                });
+            };
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1 // Adjust this value to change when the animation triggers
+            };
+
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+            // Observe each element
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+            // Select all parent components/elements that trigger animations
+            const animatedElements = document.querySelectorAll(
+                '.testimonial-heading, .review-card, .stat-card, .chart-bar'
+            );
+
+            const observerCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        
+                        // Add the is-visible class to the main element to trigger its own animation (fade/slide in)
+                        target.classList.add('is-visible');
+
+                        // --- Special handling for components with child animations ---
+
+                        // For STAT CARDS: Find child progress bars and animate their width
+                        if (target.classList.contains('stat-card')) {
+                            const progressFills = target.querySelectorAll('.progress-bar .fill');
+                            progressFills.forEach(fill => {
+                                if (fill.dataset.width) {
+                                    fill.style.width = fill.dataset.width;
+                                }
+                            });
+                        }
+                        
+                        // For GRAPH BARS: Find the child fill and animate its height
+                        if (target.classList.contains('chart-bar')) {
+                            const fill = target.querySelector('.fill');
+                            if(fill && fill.dataset.height) {
+                                fill.style.height = fill.dataset.height;
+                            }
+                        }
+                        
+                        // Once animated, we don't need to observe it anymore
+                        observer.unobserve(target);
+                    }
+                });
+            };
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1 // Start animation when 10% of the element is visible
+            };
+
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+            
+            // Observe each of the selected elements
+            animatedElements.forEach(el => observer.observe(el));
+        });

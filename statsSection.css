@@ -1,0 +1,232 @@
+/* General styling for the component container */
+        .testimonial-container {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at top left, #4a2f6c, #110e1b 40%);
+            color: #d1c4e9;
+            padding: 100px 20px;
+            text-align: center;
+            overflow: hidden; /* Ensures animations don't overflow their container */
+            min-height: 100vh; /* Make section high enough to demonstrate scroll */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Styling for the main heading section */
+        .testimonial-heading {
+            opacity: 0;
+            transform: scale(2); /* Initial larger size for the 'zoom out' effect */
+            transition: opacity 1s cubic-bezier(0.19, 1, 0.22, 1), transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+            will-change: transform, opacity;
+        }
+
+        /* The state when the element is visible */
+        .testimonial-heading.is-visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .testimonial-heading .subtitle {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #b39ddb;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-heading .main-title {
+            font-size: clamp(2.5rem, 8vw, 6rem); /* Responsive font size */
+            font-weight: 600;
+            line-height: 1.1;
+            margin: 0;
+        }
+        
+        /* Container for the review cards */
+        .testimonial-reviews {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align items to the top */
+            flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+            gap: 2rem;
+            margin-top: 4rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        /* Individual review card styling */
+        .review-card {
+            background-color: #3e265c;
+            padding: 2rem;
+            border-radius: 1rem;
+            width: 100%;
+            max-width: 350px; /* Max width for each card */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
+            will-change: transform, opacity;
+        }
+
+        /* Staggering animation delays for the cards */
+        .review-card:nth-child(1) { transition-delay: 0.2s; }
+        .review-card:nth-child(2) { transition-delay: 0.4s; }
+        .review-card:nth-child(3) { transition-delay: 0.6s; }
+
+        /* The state when cards are visible */
+        .review-card.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .review-card p {
+            margin: 0 0 1.5rem 0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            color: #e6e0f3;
+        }
+
+        .review-card .author {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #b39ddb;
+            text-transform: uppercase;
+        }
+
+        /* --- NEW STATS COMPONENT STYLES --- */
+
+        .stats-section {
+            max-width: 80vw;
+            border-radius: 25px;
+            font-family: 'Inter', sans-serif;
+            background-color: #110e1b;
+            color: #d1c4e9;
+            padding: 100px 20px;
+            overflow: hidden;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stats-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            grid-auto-flow: column;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .stat-card {
+            background-color: #1a1429;
+            padding: 2.5rem 2rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out, box-shadow 0.3s ease, transform 0.3s ease;
+            will-change: transform, opacity;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(43, 27, 68, 0.5);
+        }
+
+        .stat-card.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .stat-card:nth-child(1) { transition-delay: 0s; }
+        .stat-card:nth-child(2) { transition-delay: 0.2s; }
+        .stat-card:nth-child(3) { transition-delay: 0.4s; }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            color: #b39ddb;
+            font-size: 0.9rem;
+        }
+
+        .stat-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid rgba(255,255,255, 0.1);
+            padding-bottom: 1.5rem;
+        }
+
+        .stat-main .value {
+            font-size: clamp(2rem, 5vw, 2.75rem);
+            font-weight: 600;
+            color: #fff;
+            line-height: 1;
+        }
+
+        .stat-main .change {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        
+        .change.positive { color: #81c784; }
+        .change.negative { color: #e57373; }
+
+        .yearly-stats .stat-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+        }
+
+        .yearly-stats .year {
+            width: 50px;
+            color: #aaa;
+        }
+        
+        .progress-bar {
+            flex-grow: 1;
+            height: 8px;
+            background-color: #332946;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-bar .fill {
+            width: 0; /* Initial width */
+            height: 100%;
+            background: linear-gradient(90deg, #8e44ad, #b39ddb);
+            border-radius: 4px;
+            transition: width 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        
+        .yearly-stats .bar-value {
+            width: 70px;
+            text-align: right;
+            font-weight: 500;
+            color: #fff;
+        }
+        
+        .stat-footer a {
+            color: #b39ddb;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-block;
+            margin-top: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .stat-footer a:hover {
+            color: #fff;
+        }
+#stats{
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
