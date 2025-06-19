@@ -1,0 +1,117 @@
+.customer-section-container {
+    background-color: #000; /* Set to black as requested */
+    padding: 50px 20px;
+    text-align: center;
+    border-radius: 25px;
+    border: 5px solid white;
+    min-width: 60vw;
+     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.customer-section-container h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.customer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative; /* Needed for absolute positioning of the hover button */
+    border-radius: 8px; /* Apply border-radius here as well for consistent blur effect */
+    overflow: hidden; /* Important for the blur to respect the border-radius */
+}
+
+.customer-logo-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 75%; /* Aspect ratio 4:3 for the wrapper, adjust as needed */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px; /* Apply border-radius to individual wrappers if desired */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Keep shadow for definition */
+}
+
+.customer-logo-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensures the logo scales within the box without cropping */
+    padding: 15px; /* Padding inside the box for the logo */
+    opacity: 0; /* Start hidden for fade-in */
+    transition: opacity 1s ease-in-out;
+    filter: invert(100%); /* Apply invert filter here */
+}
+
+.customer-logo-wrapper img.active {
+    opacity: 1;
+}
+
+.customer-grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    backdrop-filter: blur(8px); /* Apply blur to content *behind* this overlay */
+    display: flex;
+    flex-direction: column; /* To stack button and potentially other elements vertically */
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none; /* Allows clicks to pass through when not hovered */
+    border-radius: 8px; /* Should match the border-radius of .customer-grid */
+}
+
+.customer-grid:hover .customer-grid-overlay {
+    opacity: 1;
+    pointer-events: all; /* Enables interaction on hover */
+}
+
+.meet-customers-button {
+    background-color: transparent; /* Transparent background */
+    color: #fff;
+    padding: 15px 30px;
+    border: 2px solid #fff; /* White border */
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transition for hover */
+    text-decoration: none;
+    display: inline-block;
+    z-index: 10; /* Ensure button is above other potential overlay content */
+}
+
+.meet-customers-button:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly visible background on hover */
+    border-color: #007bff; /* Change border color on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .customer-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .customer-grid {
+        grid-template-columns: 1fr; /* 1 column on very small screens */
+    }
+    .customer-section-container h2 {
+        font-size: 1.8em;
+    }
+}
+#consumer{
+    margin-top: 40px;
+    margin-bottom: 60px;
+}

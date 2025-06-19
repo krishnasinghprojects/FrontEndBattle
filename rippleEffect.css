@@ -1,0 +1,78 @@
+.ripple-box-container {
+    position: relative;
+    min-width: 60vw;
+    height: 600px;
+    background-color: rgba(255, 255, 255, 0.199); /* Changed to pure white */
+    backdrop-filter: blur(5px);
+    border-radius: 25px;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black; /* Changed text color to black for contrast on white background */
+    font-size: 2em;
+    font-weight: bold;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    transition: box-shadow 0.3s ease;
+    border: 5px solid black;
+}
+
+.ripple-box-container:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6); /* Changed hover shadow to black/grey for consistency */
+}
+
+.ripple-effect {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    /* Subtle grey ripple color gradient */
+    background: radial-gradient(circle at center,
+        rgba(220, 220, 220, 0.8), /* Light grey, more opaque center */
+        rgba(192, 192, 192, 0.6), /* Medium grey */
+        rgba(169, 169, 169, 0.4), /* Darker grey, more transparent */
+        rgba(128, 128, 128, 0)    /* Fades to fully transparent grey */
+    );
+    opacity: 0;
+    transform: scale(0);
+    z-index: 1;
+    pointer-events: none;
+
+    animation: ripple-wave 2.5s ease-out forwards;
+}
+
+@keyframes ripple-wave {
+    0% {
+        width: 5px;
+        height: 5px;
+        opacity: 0.5;
+        transform: scale(0);
+    }
+    10% {
+        width: 30px;
+        height: 30px;
+        opacity: 0.4;
+        transform: scale(0.5);
+    }
+    40% {
+        width: 75px;
+        height: 75px;
+        opacity: 0.2;
+        transform: scale(1);
+    }
+    80% {
+        opacity: 0.05;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.01);
+        width: 75px;
+        height: 75px;
+    }
+}
+#ripple{
+    margin-top: 60px;
+    margin-bottom: 60px;
+}

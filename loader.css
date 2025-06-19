@@ -1,0 +1,93 @@
+
+#loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #111;
+    z-index: 9999;
+    /* The final zoom-out transform */
+    transition: transform 0.8s cubic-bezier(0.83, 0, 0.17, 1), opacity 0.8s ease;
+    transform-origin: bottom left;
+}
+
+#center-loader-container {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease-out;
+}
+
+#center-loader {
+    width: 200px; /* Increased width for horizontal progress */
+    height: 15px; /* Decreased height to be a horizontal bar */
+    background-color: #333;
+    position: relative;
+    overflow: hidden;
+}
+
+#progress-bar {
+    position: absolute;
+    top: 0; /* Changed from bottom to top */
+    left: 0;
+    width: 0%; /* Changed from height to width */
+    height: 100%; /* Changed from width to height, now fills vertically within its parent */
+    background-color: white;
+    transition: width 0.1s linear; /* Changed from height to width */
+}
+
+#l-shape-vertical, #l-shape-horizontal {
+    position: absolute;
+    background-color: white;
+    opacity: 0; /* Initially hidden */
+}
+
+#l-shape-vertical {
+    bottom: 0;
+    left: 0;
+    width: 0px;
+    height: 0; /* Animated to 100vh */
+    transition: height 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+#l-shape-horizontal {
+    bottom: 0;
+    left: 0;
+    width: 0; /* Animated to 100vw */
+    height: 0px;
+    transition: width 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+#counter {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    color: #ccc;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 4rem;
+    font-weight: 800;
+    transition: opacity 0.3s ease;
+}
+
+#main-content {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    transition-delay: 0.5s;
+}
+
+/* State Classes */
+body.loading-done #loader-overlay {
+    transform: scale(30); /* Zoom in effect */
+    opacity: 0;
+}
+
+body.loading-done #main-content {
+    opacity: 1;
+}
+
+body.loading-done {
+    overflow: auto; /* Restore scroll */
+}

@@ -1,0 +1,99 @@
+.product-showcase-container {
+            display: flex;
+            gap: 1.5rem; /* Space between the cards */
+            padding: 2rem;
+            min-width: 60vw;
+            max-width: 1200px;
+            margin: 2rem auto; /* Center the component */
+        }
+
+        /* The product card is a flex item that grows to fill available space. */
+        .product-card {
+            flex: 1;
+            min-width: 280px; /* Minimum width before wrapping */
+            position: relative;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            background-color: #fff; /* A background for the card */
+        }
+        
+        /* The images (both default and hover) fill the card. */
+        .product-card img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* This transition creates the fade effect for the images */
+            transition: opacity 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* The hover image is hidden by default. */
+        .product-card .hover-image {
+            opacity: 0;
+        }
+
+        /* On hover, fade out the default image and fade in the hover image. */
+        .product-card:hover .default-image {
+            opacity: 0;
+        }
+
+        .product-card:hover .hover-image {
+            opacity: 1;
+        }
+
+        /* The overlay sits on top of the images. */
+        .product-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            color: white;
+            opacity: 0; /* Hidden by default */
+            transition: opacity 0.4s ease-in-out;
+            display: flex;
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
+        }
+
+        .product-card:hover .product-overlay {
+            opacity: 1; /* Fade the overlay in on hover */
+        }
+        
+        /* Styling for the "Add to Cart" button/text */
+        .product-overlay .add-to-cart {
+            font-size: 1.25rem;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid white;
+            border-radius: 50px;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            /* Start button translated down and invisible */
+            transform: translateY(30px);
+            opacity: 0;
+            /* Smooth transition for transform and opacity */
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .product-card:hover .product-overlay .add-to-cart {
+            /* Slide button up to its final position and fade it in */
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Responsive stacking for smaller screens */
+        @media (max-width: 768px) {
+            .product-showcase-container {
+                flex-direction: column;
+                min-width: none;
+            }
+        }
+        #switch{
+            margin-top: 20px;
+        }

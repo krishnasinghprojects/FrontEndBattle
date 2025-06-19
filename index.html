@@ -1,0 +1,223 @@
+<body>
+</body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front-End Battle IIT Bhubaneshwar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="carouselSwitch.css">
+    <link rel="stylesheet" href="loader.css">
+    <link rel="stylesheet" href="customerSection.css">
+    <link rel="stylesheet" href="rippleEffect.css">
+    <link rel="stylesheet" href="parallexEffect.css">
+        <link rel="stylesheet" href="workShowcase.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+
+<body class="light-theme">
+
+    <div id="loader-overlay">
+        <!-- The initial vertical loader that fills up -->
+        <div id="center-loader-container">
+            <div id="center-loader">
+                <div id="progress-bar"></div>
+            </div>
+        </div>
+
+        <!-- The elements that will form the L-shape -->
+        <div id="l-shape-vertical"></div>
+        <div id="l-shape-horizontal"></div>
+
+        <div id="counter">0</div>
+    </div>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">Front-End Battle</a>
+            <div class="navbar-menu" id="navbarMenu">
+                <ul class="navbar-links">
+                    <li><a href="#switch">Switch</a></li>
+                     <li><a href="#parallex">Parallex</a></li>
+                      <li><a href="#work">Work</a></li>
+                    <li><a href="#consumer">Customers</a></li>
+                    <li><a href="#ripple">Ripple</a></li>
+                </ul>
+            </div>
+            <div class="navbar-actions">
+                <button class="theme-toggle" id="themeToggle">
+                    <i data-feather="sun" class="sun"></i>
+                    <i data-feather="moon" class="moon"></i>
+                </button>
+                <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i data-feather="menu"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <!-- UI elements will be showcased here -->
+        <h1 id="switch">Carousel Switch</h1>
+        <div class="product-showcase-container">
+            <div class="product-card">
+                <img class="default-image" src="Assets/CarouselSwitch/Img1.jpg" alt="Front view of Product 1">
+                <img class="hover-image" src="Assets/CarouselSwitch/Img2.jpg" alt="Side view of Product 1">
+
+                <div class="product-overlay">
+                    <div class="add-to-cart">Add to Cart</div>
+                </div>
+            </div>
+
+            <!-- Second Product Card -->
+            <div class="product-card">
+                <!-- Replace with your product images -->
+                <img class="default-image" src="Assets/CarouselSwitch/Img3.jpg" alt="Front view of Product 2">
+                <img class="hover-image" src="Assets/CarouselSwitch/Img4.jpg" alt="Side view of Product 2">
+
+                <div class="product-overlay">
+                    <div class="add-to-cart">Add to Cart</div>
+                </div>
+            </div>
+        </div>
+        <h1 id="parallex">Parallex Effect</h1>
+        <div class="parallex-box" id="parallex-box">
+            <div class="parallax-wrapper" id="parallax-wrapper">
+                <h1 class="parallax-text" id="parallax-text">Explore More</h1>
+            </div>
+
+            <div class="content-section">
+                <div class="content-heading">
+                    About This Section
+                </div>
+                <div class="content-description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </div>
+            </div>
+        </div>
+        <h1 id="work">Work Showcase</h1>
+          <div class="work">
+              <div class="work-showcase">
+        <div class="background-overlay"></div>
+        <div class="text-column">
+            <div class="text-content">
+                <div class="showcase-item" data-item="1">
+                    <h1>GRAND HOTEL<br>OSLO 150 YEARS</h1>
+                    <div class="tags">
+                        <span>INTERNATIONAL</span>
+                        <span>NORWAY</span>
+                        <span>BRAND ACTIVATION</span>
+                    </div>
+                    <a href="#" class="read-more">READ MORE &rarr;</a>
+                </div>
+                <div class="showcase-item" data-item="2">
+                    <h1>SWITCH - SOPRA<br>STERIA KICK OFF<br>2025</h1>
+                    <div class="tags">
+                        <span>NORWAY</span>
+                        <span>B2E EVENT</span>
+                    </div>
+                    <a href="#" class="read-more">READ MORE &rarr;</a>
+                </div>
+                <div class="showcase-item" data-item="3">
+                    <h1>GLOBAL MUSIC<br>FESTIVAL 2025</h1>
+                    <div class="tags">
+                        <span>INTERNATIONAL</span>
+                        <span>MUSIC</span>
+                        <span>FESTIVAL</span>
+                    </div>
+                    <a href="#" class="read-more">READ MORE &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="image-column">
+            <div class="image-container">
+                <div class="showcase-image" data-item="1"></div>
+                <div class="showcase-image" data-item="2"></div>
+                <div class="showcase-image" data-item="3"></div>
+            </div>
+            <div class="number-container">
+                <div class="number-slide">
+                    <h2 class="showcase-number">01</h2>
+                    <h2 class="showcase-number">02</h2>
+                    <h2 class="showcase-number">03</h2>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-progress-container">
+            <div class="scroll-progress-bar"></div>
+        </div>
+        </div>
+        </div>
+        <h1 id="consumer">Customers Section</h1>
+        <div class="customer-section-container">
+            <h2>Our Valued Partners</h2>
+            <div class="customer-grid">
+                <div class="customer-logo-wrapper">
+                    <img src="Assets/Icons/Icon6.png" alt="Customer Logo 1">
+                    <img src="Assets/Icons/Icon1.png" alt="Customer Logo 7">
+                </div>
+                <div class="customer-logo-wrapper">
+                    <img src="Assets/Icons/Icon5.png" alt="Customer Logo 2">
+                    <img src="Assets/Icons/Icon2.png" alt="Customer Logo 8">
+                </div>
+                <div class="customer-logo-wrapper">
+                    <img src="Assets/Icons/Icon4.png" alt="Customer Logo 3">
+                    <img src="Assets/Icons/Icon3.png" alt="Customer Logo 9">
+                </div>
+                <div class="customer-logo-wrapper">
+                    <img src="Assets/Icons/Icon3.png" alt="Customer Logo 4">
+                    <img src="Assets/Icons/Icon4.png" alt="Customer Logo 10">
+                </div>
+                <div class="customer-logo-wrapper">
+                    <img src="Assets/Icons/Icon2.png" alt="Customer Logo 5">
+                    <img src="Assets/Icons/Icon5.png" alt="Customer Logo 11">
+                </div>
+                <div class="customer-logo-wrapper">
+                    <img src="Assets/Icons/Icon1.png" alt="Customer Logo 6">
+                    <img src="Assets/Icons/Icon6.png" alt="Customer Logo 12">
+                </div>
+
+                <div class="customer-grid-overlay">
+                    <a href="#" class="meet-customers-button">Meet Our Customers</a>
+                </div>
+            </div>
+        </div>
+        <h1 id="ripple">Ripple Effect</h1>
+        <div class="ripple-box-container">
+            <div class="ripple-effect"></div>
+        </div>
+      
+       
+
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2025 Front-End Battle. All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        feather.replace()
+    </script>
+</body>
+
+</html>
+
+</html>

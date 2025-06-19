@@ -1,0 +1,94 @@
+/* Placeholder for demonstration purposes */
+.placeholder {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #888;
+}
+
+.parallex-box {
+    border-radius: 25px;
+    width: 90%;
+    max-width: 1200px;
+    overflow: hidden;
+    margin: 2rem auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.parallax-wrapper {
+    position: relative;
+    width: 100%;
+    /* Using padding-top to enforce 16:9 aspect ratio */
+    padding-top: 56.25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070&auto=format&fit=crop');
+    background-size: 150%;
+    background-position: center center;
+    will-change: background-position;
+    transition: background-position 0.1s ease-out;
+}
+
+.parallax-text {
+    color: white;
+    font-size: 4vw;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    will-change: transform;
+    transition: transform 0.1s ease-out;
+}
+
+.content-section {
+    display: flex;
+    padding: 4rem;
+    background-color: #ffffff;
+    color: #333;
+    line-height: 1.8;
+    align-items: flex-start;
+}
+
+.content-heading {
+    flex: 1;
+    font-size: 2rem;
+    font-weight: 700;
+    padding-right: 2rem;
+    position: sticky;
+    top: 2rem;
+}
+
+.content-description {
+    flex: 2;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+@media (max-width: 768px) {
+    .parallax-text {
+        font-size: 6vw;
+    }
+
+    .content-section {
+        flex-direction: column;
+        padding: 2rem;
+    }
+
+    .content-heading {
+        position: static;
+        padding-right: 0;
+        padding-bottom: 1rem;
+    }
+}
+#parallex{
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
